@@ -1,38 +1,50 @@
-# URL Shortener
+<h1 align="center">URL Shortener ✂️</h1>
+<p align="center">
+  <img alt="Version" src="https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000" />
+  <a href="#" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  </a>
+  <a href="https://twitter.com/joserosendo99" target="_blank">
+    <img alt="Twitter: joserosendo99" src="https://img.shields.io/twitter/follow/joserosendo99.svg?style=social" />
+  </a>
+  <a href="https://github.com/JMRBDev" target="_blank">
+    <img alt="Github: JMRBDev" src="https://img.shields.io/github/followers/JMRBDev?style=social" />
+  </a>
+</p>
 
-Simple URL Shortener service made with:
+> Simple URL Shortener service for self-hosting purposes
 
-- NextJS
-- Firebase Firestore
-- Chakra UI
+### 🏠 [Homepage](https://github.com/JMRBDev/url-shortener)
 
-## How this works
+### ✨ [Demo](https://short.jmrb.dev/)
 
-Paste any valid URL on the "**Lengthy URL**" field and click the "**Shorten ✂️**" button.
+## Install
 
-The URL will be saved in Firebase Firestore as a new document inside the "**urls**" collection.
+```sh
+npm install
+```
 
-Then, the updated saved urls list will be fetched and shown inside the table.
+## Usage
 
-You can choose any slug by typing it inside the "**Slug**" field. It has to be unique as it will be used as the document's ID in Firestore.
+```sh
+npm start
+```
 
-## How to run the app locally
+## Author
 
-- Clone [this](https://github.com/JMRBDev/url-shortener) repository.
-- Open the project folder with your favorite IDE and run `npm install`.
-- Create a new Firebase project and activate the Firestore section.
-- Get Firebase's Admin SDK credentials .json file:
-  - Project settings.
-  - Service accounts.
-  - Firebase Admin SDK.
-  - Generate new private key.
-- Create a `.env` file and add the next environment variables:
-  - `FIREBASE_PROJECT_ID`: Can be found inside the downloaded .json file as `"project_id"`.
-  - `FIREBASE_CLIENT_EMAIL`: Can be found inside the downloaded .json file as `"client_email"`.
-  - `FIREBASE_PRIVATE_KEY`: Can be found inside the downloaded .json file as `"private_key"`.
-    - This one has to be a bit modified for it to work properly when deployed in Vercel.<br>*Example*: `FIREBASE_PRIVATE_KEY={"privateKey": "<actual key>"}`.
+👤 **Jose Rosendo**
 
-<br>
-<br>
+* Website: https://www.jmrb.dev/
+* Twitter: [@joserosendo99](https://twitter.com/joserosendo99)
+* Github: [@JMRBDev](https://github.com/JMRBDev)
+* LinkedIn: [@jose-rosendo](https://linkedin.com/in/jose-rosendo)
 
-`Made with 💚 by JMRBDev`
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/JMRBDev/url-shortener/issues). 
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+***
