@@ -1,11 +1,12 @@
 import { Container, Heading, Flex, Box } from '@chakra-ui/layout'
 import { useToast } from '@chakra-ui/toast';
 import Head from 'next/head'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import UrlsTable from '../components/UrlsTable';
 import firebase from '../lib/firebase';
 import { useRouter } from 'next/dist/client/router';
 import ShortenForm from '../components/ShortenForm';
+import useUser from '../hooks/useUser';
 
 interface IProps {
   existingUrls: {
@@ -15,6 +16,8 @@ interface IProps {
 }
 
 const Home = ({ existingUrls }: IProps) => {
+  const { user, loading } = useUser();
+
   const [url, setUrl] = useState('');
   const [slug, setSlug] = useState('');
 
@@ -54,6 +57,12 @@ const Home = ({ existingUrls }: IProps) => {
     }
   };
 
+  useEffect(() => {
+    if (!loading && !user) {
+      router.push('/login');
+    }
+  }, [user, loading, router]);
+
   return (
     <Box overflow="hidden">
       <Head>
@@ -78,8 +87,6 @@ const Home = ({ existingUrls }: IProps) => {
           </Heading>
 
           <ShortenForm
-            url={url}
-            slug={slug}
             onChangeUrl={setUrl}
             onChangeSlug={setSlug}
             onSubmit={handleShortenUrl}

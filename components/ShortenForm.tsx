@@ -4,7 +4,7 @@ import { RiScissorsFill } from 'react-icons/ri';
 import { FormHelperText, FormLabel, FormControl } from '@chakra-ui/form-control';
 import { Input } from '@chakra-ui/input';
 
-const ShortenForm = ({ url, slug, onChangeUrl, onChangeSlug, onSubmit }) => {
+const ShortenForm = ({ onChangeUrl, onChangeSlug, onSubmit }) => {
     return (
         <VStack
             w="100%"
