@@ -1,14 +1,11 @@
-import { Button } from '@chakra-ui/button';
-import { FormControl, FormHelperText, FormLabel } from '@chakra-ui/form-control'
-import { Input } from '@chakra-ui/input'
-import { Container, Heading, Flex, VStack, Box } from '@chakra-ui/layout'
+import { Container, Heading, Flex, Box } from '@chakra-ui/layout'
 import { useToast } from '@chakra-ui/toast';
 import Head from 'next/head'
 import { useState } from 'react';
 import UrlsTable from '../components/UrlsTable';
 import firebase from '../lib/firebase';
 import { useRouter } from 'next/dist/client/router';
-import { RiScissorsFill } from 'react-icons/ri';
+import ShortenForm from '../components/ShortenForm';
 
 interface IProps {
   existingUrls: {
@@ -49,7 +46,7 @@ const Home = ({ existingUrls }: IProps) => {
     } else {
       toast({
         title: 'The URL is not valid',
-        description: `'${url}' is not a valid URL. Try it again with a different URL.`,
+        description: url.length === 0 ? `URL is a required field` : `'${url}' is not a valid URL, try again with a different one`,
         status: 'warning',
         duration: 5000,
         isClosable: true,
@@ -80,24 +77,13 @@ const Home = ({ existingUrls }: IProps) => {
             URL Shortening Service
           </Heading>
 
-          <VStack
-            w="100%"
-            gridGap={6}
-          >
-            <FormControl id="url">
-              <FormLabel fontWeight="bold">Lengthy URL</FormLabel>
-              <Input onChange={(e) => setUrl(e.target.value)} type="url" placeholder="https://www.jmrb.dev/blog/blog-title" variant="filled" />
-              <FormHelperText>Original URL you wish to shorten</FormHelperText>
-            </FormControl>
-
-            <FormControl id="slug">
-              <FormLabel fontWeight="bold">Slug</FormLabel>
-              <Input onChange={(e) => setSlug(e.target.value)} type="slug" placeholder="post-01" variant="filled" />
-              <FormHelperText>String to be used as shorten key</FormHelperText>
-            </FormControl>
-
-            <Button onClick={handleShortenUrl} rightIcon={<RiScissorsFill />}>Shorten</Button>
-          </VStack>
+          <ShortenForm
+            url={url}
+            slug={slug}
+            onChangeUrl={setUrl}
+            onChangeSlug={setSlug}
+            onSubmit={handleShortenUrl}
+          />
 
           <UrlsTable urls={existingUrls} />
 
