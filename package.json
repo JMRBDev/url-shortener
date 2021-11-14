@@ -1,5 +1,22 @@
 {
   "name": "url-shortener",
+  "description": "URL Shortening made easy",
+  "version": "0.1.0",
+  "keywords": [
+    "url-shortener",
+    "nextjs",
+    "firebase"
+  ],
+  "author": {
+    "name": "Jose Rosendo",
+    "email": "josemrb99@gmail.com",
+    "url": "https://www.jmrb.dev/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JMRBDev/url-shortener.git"
+  },
+  "homepage": "https://github.com/JMRBDev/url-shortener#readme",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -28,5 +45,6 @@
     "eslint": "7.32.0",
     "eslint-config-next": "12.0.3",
     "typescript": "^4.4.4"
-  }
+  },
+  "license": "MIT"
 }
