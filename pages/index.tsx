@@ -64,40 +64,42 @@ const Home = ({ existingUrls }: IProps) => {
   }, [user, loading, router]);
 
   return (
-    <Box overflow="hidden">
-      <Head>
-        <title>Home — URL Shortener</title>
-        <meta name="description" content="URL Shortening service developed by JMRBDev" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <>
+      {(!loading && user) && (<Box overflow="hidden">
+        <Head>
+          <title>Home — URL Shortener</title>
+          <meta name="description" content="URL Shortening service developed by JMRBDev" />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
 
-      <Container
-        h="100vh"
-        w="100vw"
-      >
-        <Flex
-          flexDirection="column"
-          h="100%"
-          w="100%"
-          justify="center"
-          align="center"
+        <Container
+          h="100vh"
+          w="100vw"
         >
-          <Heading mb={12}>
-            URL Shortening Service
-          </Heading>
+          <Flex
+            flexDirection="column"
+            h="100%"
+            w="100%"
+            justify="center"
+            align="center"
+          >
+            <Heading mb={12}>
+              URL Shortening Service
+            </Heading>
 
-          <ShortenForm
-            onChangeUrl={setUrl}
-            onChangeSlug={setSlug}
-            onSubmit={handleShortenUrl}
-          />
+            <ShortenForm
+              onChangeUrl={setUrl}
+              onChangeSlug={setSlug}
+              onSubmit={handleShortenUrl}
+            />
 
-          <UrlsTable urls={existingUrls} />
+            <UrlsTable urls={existingUrls} />
 
-        </Flex>
-      </Container>
-    </Box>
-  )
+          </Flex>
+        </Container>
+      </Box>)}
+    </>
+  );
 }
 
 export default Home;
