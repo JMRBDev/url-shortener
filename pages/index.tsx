@@ -66,7 +66,7 @@ const Home = ({ existingUrls }: IProps) => {
   return (
     <Box overflow="hidden">
       <Head>
-        <title>URL Shortener</title>
+        <title>Home — URL Shortener</title>
         <meta name="description" content="URL Shortening service developed by JMRBDev" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
