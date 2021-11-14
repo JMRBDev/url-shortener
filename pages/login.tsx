@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 import useUser from '../hooks/useUser';
 import { useToast } from '@chakra-ui/toast';
 import AUTH_ERRORS from '../enums/AUTH_ERRORS';
+import Head from 'next/head';
 
 
 const Login = () => {
@@ -49,74 +50,82 @@ const Login = () => {
     };
 
     return (
-        <Container
-            w="100vw"
-            h="100vh"
-        >
-            <Flex
-                w="full"
-                h="full"
-                align="center"
-                justify="center"
-                flexDirection="column"
+        <>
+            <Head>
+                <title>Login — URL Shortener</title>
+                <meta name="description" content="URL Shortening service developed by JMRBDev" />
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
+
+            <Container
+                w="100vw"
+                h="100vh"
             >
-                <Heading mb={12}>
-                    URL Shortening Service
-                </Heading>
-
-                <Box
-                    p={6}
+                <Flex
                     w="full"
-                    bg="gray.700"
-                    borderRadius="lg"
+                    h="full"
+                    align="center"
+                    justify="center"
+                    flexDirection="column"
                 >
-                    <form onSubmit={handleOnSubmit}>
-                        <VStack
-                            spacing={4}
-                        >
-                            <FormControl id="email">
-                                <FormLabel
-                                    fontWeight="bold"
-                                >
-                                    Email
-                                </FormLabel>
-                                <Input
-                                    disabled={loading}
-                                    variant="filled"
-                                    type="email"
-                                    onChange={(event) => setEmail(event.target.value)}
-                                />
-                            </FormControl>
+                    <Heading mb={12}>
+                        URL Shortening Service
+                    </Heading>
 
-                            <FormControl id="password">
-                                <FormLabel
-                                    fontWeight="bold"
-                                >
-                                    Password
-                                </FormLabel>
-                                <Input
-                                    disabled={loading}
-                                    variant="filled"
-                                    type="password"
-                                    onChange={(event) => setPassword(event.target.value)}
-                                />
-                            </FormControl>
-                        </VStack>
-                        <Box
-                            pt={12}
-                        >
-                            <Button
-                                type="submit"
-                                w="full"
-                                onClick={handleOnSubmit}
+                    <Box
+                        p={6}
+                        w="full"
+                        bg="gray.700"
+                        borderRadius="lg"
+                    >
+                        <form onSubmit={handleOnSubmit}>
+                            <VStack
+                                spacing={4}
                             >
-                                Log in
-                            </Button>
-                        </Box>
-                    </form>
-                </Box>
-            </Flex>
-        </Container >
+                                <FormControl id="email">
+                                    <FormLabel
+                                        fontWeight="bold"
+                                    >
+                                        Email
+                                    </FormLabel>
+                                    <Input
+                                        disabled={loading}
+                                        variant="filled"
+                                        type="email"
+                                        onChange={(event) => setEmail(event.target.value)}
+                                    />
+                                </FormControl>
+
+                                <FormControl id="password">
+                                    <FormLabel
+                                        fontWeight="bold"
+                                    >
+                                        Password
+                                    </FormLabel>
+                                    <Input
+                                        disabled={loading}
+                                        variant="filled"
+                                        type="password"
+                                        onChange={(event) => setPassword(event.target.value)}
+                                    />
+                                </FormControl>
+                            </VStack>
+                            <Box
+                                pt={12}
+                            >
+                                <Button
+                                    type="submit"
+                                    w="full"
+                                    onClick={handleOnSubmit}
+                                >
+                                    Log in
+                                </Button>
+                            </Box>
+                        </form>
+                    </Box>
+                </Flex>
+            </Container>
+        </>
     );
 }
 
