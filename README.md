@@ -1,34 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# URL Shortener
 
-## Getting Started
+Simple URL Shortener service made with:
 
-First, run the development server:
+- NextJS
+- Firebase Firestore
+- Chakra UI
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## How this works
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Paste any valid URL on the "**Lengthy URL**" field and click the "**Shorten ✂️**" button.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+The URL will be saved in Firebase Firestore as a new document inside the "**urls**" collection.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Then, the updated saved urls list will be fetched and shown inside the table.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+You can choose any slug by typing it inside the "**Slug**" field. It has to be unique as it will be used as the document's ID in Firestore.
 
-## Learn More
+## How to run the app locally
 
-To learn more about Next.js, take a look at the following resources:
+- Clone [this](https://github.com/JMRBDev/url-shortener) repository.
+- Open the project folder with your favorite IDE and run `npm install`.
+- Create a new Firebase project and activate the Firestore section.
+- Get Firebase's Admin SDK credentials .json file:
+  - Project settings.
+  - Service accounts.
+  - Firebase Admin SDK.
+  - Generate new private key.
+- Create a `.env` file and add the next environment variables:
+  - `FIREBASE_PROJECT_ID`: Can be found inside the downloaded .json file as `"project_id"`.
+  - `FIREBASE_CLIENT_EMAIL`: Can be found inside the downloaded .json file as `"client_email"`.
+  - `FIREBASE_PRIVATE_KEY`: Can be found inside the downloaded .json file as `"private_key"`.
+    - This one has to be a bit modified for it to work properly when deployed in Vercel.<br>*Example*: `FIREBASE_PRIVATE_KEY={"privateKey": "<actual key>"}`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<br>
+<br>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+`Made with 💚 by JMRBDev`
